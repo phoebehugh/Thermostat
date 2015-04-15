@@ -1,18 +1,39 @@
 describe('Thermostat interface', function() {
 
   var thermostat
+
   beforeEach(function() {
     jasmine.getFixtures().fixturesPath = '.';
     loadFixtures('index.html');
     thermostat = new Thermostat
   });
+
   it('displays the default temperature 20 on the server', function() {
       expect($('#temperature')).toHaveText("20");
   });
 
-  // it('can increase the temeprature by clicking the up button', function() {
-  //   thermostat.increaseTemp();
-  //   expect($('#temeprature')).toHaveText("21");
-  // });
+  describe('controlling the temperature', function() {    
+
+    it('can increase the temperature by clicking the up button', function() {
+      $("#up").click();
+      expect($('#temperature')).toHaveText("21");
+    });
+
+    it('can decrease the temperature by clicking the down button', function() {
+      $("#down").click();
+      expect($('#temperature')).toHaveText("19");
+    });
+
+    it('can reset the temperature to 20 when pressing the reset button', function() {
+      for (x = 0; x < 20; x +=1) {
+        $("#up").click();
+      };
+     
+      $("#reset").click();
+      expect($('#temperature')).toHaveText("20")
+    });
+
+  });
+
 
 });
