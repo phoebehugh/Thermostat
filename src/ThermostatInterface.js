@@ -1,32 +1,44 @@
 $( document ).ready(function() {
 
   var thermostat = new Thermostat();
+
+  var displayTemp = function() {
     $( "#temperature" ).text(thermostat.temperature);
+  };
+
+  // var tempColour = function() {
+  //   if (thermostat.temperature < 18) { this }.css( "colour", "#00FF66" )
+  //   else displayTemp
+  // };
+
+    displayTemp();
 
     $( "#up" ).on('click', function() {
         thermostat.increaseTemp(); 
-    $( "#temperature" ).text(thermostat.temperature);
+    displayTemp();
     });
 
     $( "#down" ).on('click', function() {
         thermostat.decreaseTemp(); 
-    $( "#temperature" ).text(thermostat.temperature);
+    displayTemp();
     });
 
     $( "#reset" ).on('click', function() {
         thermostat.resetTemp();
-    $( "#temperature" ).text(thermostat.temperature);        
+    displayTemp();        
     });
 
     $( "#powersaveOff" ).on('click', function() {
         thermostat.turnPowerSaverModeOff();
-    $( "#temperature" ).text(thermostat.temperature);   
+    displayTemp();   
     });
 
     $( "#powersaveOn" ).on('click', function() {
         thermostat.turnPowerSaverModeOn();
-    $( "#temperature" ).text(thermostat.temperature);   
+    displayTemp();   
     });
+
+
 
 });
 
