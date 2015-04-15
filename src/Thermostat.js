@@ -32,3 +32,14 @@ Thermostat.prototype.maxTemp = function() {
 Thermostat.prototype.minTemp = function() {
   return 10
 };
+
+Thermostat.prototype.colour = function() {
+  if (this.temperature < 18) { 
+    return("green");
+  } else if (this.temperature > 17 && this.temperature < 26 ){
+    return("yellow");
+  } else {
+    return("red");
+  }
+};
+
