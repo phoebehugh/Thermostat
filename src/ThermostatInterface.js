@@ -17,5 +17,10 @@ $( document ).ready(function() {
         thermostat.resetTemp();
     $( "#temperature" ).text(thermostat.temperature);        
     });
+
+    $( "#powersave" ).on('click', function() {
+        thermostat.turnPowerSaverModeOff();
+        $( "#temperature" ).text(thermostat.temperature);   
+    });
 });
 
