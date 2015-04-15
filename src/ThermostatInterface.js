@@ -18,9 +18,15 @@ $( document ).ready(function() {
     $( "#temperature" ).text(thermostat.temperature);        
     });
 
-    $( "#powersave" ).on('click', function() {
+    $( "#powersaveOff" ).on('click', function() {
         thermostat.turnPowerSaverModeOff();
-        $( "#temperature" ).text(thermostat.temperature);   
+    $( "#temperature" ).text(thermostat.temperature);   
     });
+
+    $( "#powersaveOn" ).on('click', function() {
+        thermostat.turnPowerSaverModeOn();
+    $( "#temperature" ).text(thermostat.temperature);   
+    });
+
 });
 

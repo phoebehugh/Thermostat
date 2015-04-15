@@ -38,11 +38,20 @@ describe('Thermostat interface', function() {
   describe('clicking the power save button', function() {
 
     it('can turn power save mode off', function() {
-      $("#powersave").click();
+      $("#powersaveOff").click();
       for (x = 0; x < 20; x += 1) {
       $("#up").click();
       };
       expect($('#temperature')).toHaveText("32");
+    });
+
+    it('can turn power save mode on', function() {
+      $("#powersaveOff").click();
+      $("#powersaveOn").click();
+      for (x = 0; x < 20; x += 1) {
+      $("#up").click();
+      };
+      expect($('#temperature')).toHaveText("25");
     });
 
   });
