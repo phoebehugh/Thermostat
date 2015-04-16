@@ -59,9 +59,7 @@ describe('Thermostat interface', function() {
   // describe('temperature is reflected by colour', function() {
 
   //     it('temperature is green when below 18 degrees', function() {
-  //       for (x = 0; x < 20; x +=1) {
-  //       $("#down").click();
-  //       };
+  //       thermostat.temperature = 17
   //       expect($('#temperature')).toHaveCSS({"color": "#00FF66"});
   //     });
 

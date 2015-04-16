@@ -2,14 +2,17 @@ $( document ).ready(function() {
 
   var thermostat = new Thermostat();
 
-  var displayTemp = function() {
-    $( "#temperature" ).text(thermostat.temperature);
+  function color() {
+    var temp = thermostat.temperature
+    if (temp < 18) $('#temperature').css( "color", "#33FF99" )
+    if (temp > 26) $('#temperature').css( "color", "#E80000" )
+    if (temp > 17 && temp < 27) $('#temperature').css("color", "#FFFF00" )
   };
 
-  // var tempColour = function() {
-  //   if (thermostat.temperature < 18) { this }.css( "colour", "#00FF66" )
-  //   else displayTemp
-  // };
+  var displayTemp = function() {
+    color();
+    $( "#temperature" ).text(thermostat.temperature);
+  };
 
     displayTemp();
 
