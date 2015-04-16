@@ -4,9 +4,9 @@ $( document ).ready(function() {
 
   function color() {
     var temp = thermostat.temperature
-    if (temp < 18) $('#temperature').css( "color", "#33FF99" )
-    if (temp > 26) $('#temperature').css( "color", "#E80000" )
-    if (temp > 17 && temp < 27) $('#temperature').css("color", "#FFFF00" )
+    if (temp < 18) $('#temperature').css( "color", 'rgb(153, 255, 153)' )
+    if (temp > 26) $('#temperature').css( "color", 'rgb(255, 51, 51)' )
+    if (temp > 17 && temp < 27) $('#temperature').css("color", 'rgb(255, 255, 153)' )
   };
 
   var displayTemp = function() {
@@ -17,8 +17,13 @@ $( document ).ready(function() {
     displayTemp();
 
     $( "#up" ).on('click', function() {
-        thermostat.increaseTemp(); 
-    displayTemp();
+      thermostat.increaseTemp(); 
+      displayTemp();
+      // $.post('/temperature_change',
+      //   { 
+      //     thermostat.temperature,
+      //   },
+      //   }),
     });
 
     $( "#down" ).on('click', function() {
@@ -40,8 +45,6 @@ $( document ).ready(function() {
         thermostat.turnPowerSaverModeOn();
     displayTemp();   
     });
-
-
 
 });
 

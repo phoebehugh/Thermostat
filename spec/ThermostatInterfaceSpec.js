@@ -56,13 +56,27 @@ describe('Thermostat interface', function() {
 
   });
 
-  // describe('temperature is reflected by colour', function() {
+  describe('temperature is reflected by colour', function() {
+      it('temperature is green when below 18 degrees', function() {
+      for (x = 0; x <5; x++) {
+      $("#down").click();
+      };
+        expect($('#temperature').css("color")).toEqual('rgb(153, 255, 153)');
+      });
 
-  //     it('temperature is green when below 18 degrees', function() {
-  //       thermostat.temperature = 17
-  //       expect($('#temperature')).toHaveCSS({"color": "#00FF66"});
-  //     });
+      it('temperature is red when over 26 degrees', function() {
+      $("#powersaveOff").click();
+      for (x = 0; x <10; x++) {
+      $("#up").click();
+      };
+        expect($('#temperature').css("color")).toEqual('rgb(255, 51, 51)');
+      });
 
-  // });
+      it('temperature is yellow when in between 18 and 26 degrees', function() {
+        expect($('#temperature').css("color")).toEqual('rgb(255, 255, 153)');
+      });
+  });
+
+
 
 });
