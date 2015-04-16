@@ -1,4 +1,4 @@
-describe('Thermostat', function(){
+describe('Thermostat engine', function(){
 
   var thermostat
   beforeEach(function() {
@@ -66,18 +66,18 @@ describe('Thermostat', function(){
 
    describe('The colour changes to reflect the temperature', function(){
 
-    it('has a colour of green when the temp is less than 18', function(){
+    it('it has a colour of green when the temp is less than 18', function(){
       for (i = 0; i < 3; i++){
         thermostat.decreaseTemp();
       };
       expect(thermostat.colour()).toEqual("green");
     });
 
-    it('has a colour of yellow when the temp is more than 17 and less than 26', function(){
+    it('it has a colour of yellow when the temp is more than 17 and less than 26', function(){
       expect(thermostat.colour()).toEqual("yellow");
     });
 
-    it('has a colour of red when the temp is greater than 25', function(){
+    it('it has a colour of red when the temp is greater than 25', function(){
       thermostat.turnPowerSaverModeOff();
       for (i = 0; i < 6; i++){
         thermostat.increaseTemp();

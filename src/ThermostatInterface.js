@@ -19,11 +19,10 @@ $( document ).ready(function() {
     $( "#up" ).on('click', function() {
       thermostat.increaseTemp(); 
       displayTemp();
-      // $.post('/temperature_change',
-      //   { 
-      //     thermostat.temperature,
-      //   },
-      //   }),
+      
+      $.post("/temperature_change", { 
+        Temperature: thermostat.temperature
+      });
     });
 
     $( "#down" ).on('click', function() {

@@ -56,15 +56,19 @@ describe('Thermostat interface', function() {
 
   });
 
-  describe('temperature is reflected by colour', function() {
-      it('temperature is green when below 18 degrees', function() {
+  describe('The colour changes to reflect the temperature', function() {
+      it('it has a colour of green when the temp is less than 18', function() {
       for (x = 0; x <5; x++) {
       $("#down").click();
       };
         expect($('#temperature').css("color")).toEqual('rgb(153, 255, 153)');
       });
+     
+      it('it has a colour of yellow when the temp is more than 17 and less than 26', function() {
+        expect($('#temperature').css("color")).toEqual('rgb(255, 255, 153)');
+      });
 
-      it('temperature is red when over 26 degrees', function() {
+      it('it has a colour of red when the temp is greater than 25', function() {
       $("#powersaveOff").click();
       for (x = 0; x <10; x++) {
       $("#up").click();
@@ -72,9 +76,6 @@ describe('Thermostat interface', function() {
         expect($('#temperature').css("color")).toEqual('rgb(255, 51, 51)');
       });
 
-      it('temperature is yellow when in between 18 and 26 degrees', function() {
-        expect($('#temperature').css("color")).toEqual('rgb(255, 255, 153)');
-      });
   });
 
 
